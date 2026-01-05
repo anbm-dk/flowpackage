@@ -21,9 +21,23 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// localflowCpp
+NumericVector localflowCpp(NumericVector x, std::size_t ni, std::size_t nw);
+RcppExport SEXP _flowpackage_localflowCpp(SEXP xSEXP, SEXP niSEXP, SEXP nwSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< std::size_t >::type ni(niSEXP);
+    Rcpp::traits::input_parameter< std::size_t >::type nw(nwSEXP);
+    rcpp_result_gen = Rcpp::wrap(localflowCpp(x, ni, nw));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_flowpackage_chordAngleCpp", (DL_FUNC) &_flowpackage_chordAngleCpp, 1},
+    {"_flowpackage_localflowCpp", (DL_FUNC) &_flowpackage_localflowCpp, 3},
     {NULL, NULL, 0}
 };
 

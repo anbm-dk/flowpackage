@@ -5,3 +5,7 @@ chordAngleCpp <- function(x) {
     .Call(`_flowpackage_chordAngleCpp`, x)
 }
 
+localflowCpp <- function(x, ni, nw) {
+    .Call(`_flowpackage_localflowCpp`, x, ni, nw)
+}
+

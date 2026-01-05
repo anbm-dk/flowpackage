@@ -10,19 +10,20 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// rcpp_hello
-List rcpp_hello();
-RcppExport SEXP _flowpackage_rcpp_hello() {
+// chordAngleCpp
+double chordAngleCpp(NumericVector x);
+RcppExport SEXP _flowpackage_chordAngleCpp(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpp_hello());
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(chordAngleCpp(x));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_flowpackage_rcpp_hello", (DL_FUNC) &_flowpackage_rcpp_hello, 0},
+    {"_flowpackage_chordAngleCpp", (DL_FUNC) &_flowpackage_chordAngleCpp, 1},
     {NULL, NULL, 0}
 };
 
